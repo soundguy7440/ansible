@@ -1,12 +1,12 @@
 ---
-- name: Update and upgrade Ubuntu server
-  hosts: "{{ inventory }}"
-  become: true
-  tasks:
-    - name: Update package cache
-      apt:
-        update_cache: yes
+    - name: Update and upgrade Ubuntu server
+      hosts: "{{ inventory }}"
       become: true
+      tasks:
+        - name: Update package cache
+          apt:
+            update_cache: yes
+          become: true
 
     - name: Upgrade packages
       apt:
