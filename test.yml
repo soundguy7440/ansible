@@ -1,7 +1,4 @@
 ---
-- name: Update and upgrade Ubuntu server
-  hosts: your_ubuntu_server
-  become: true
   tasks:
     - name: Update package cache
       apt:
