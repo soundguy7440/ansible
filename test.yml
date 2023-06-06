@@ -1,18 +1,18 @@
 ---
-    - name: Update and upgrade Ubuntu server
-      hosts: "{{ inventory }}"
+- name: Update and upgrade Ubuntu server
+  hosts: "{{ inventory }}"
+  become: true
+  tasks:
+    - name: Update package cache
+      apt:
+        update_cache: yes
       become: true
-      tasks:
-        - name: Update package cache
-          apt:
-            update_cache: yes
-          become: true
 
-        - name: Upgrade packages
-          apt:
-            upgrade: dist
-            autoremove: yes
-            autoclean: yes
-            force_apt_get: yes
-            dpkg_options: 'force-confnew'
-          become: true
+    - name: Upgrade packages
+      apt:
+        upgrade: dist
+        autoremove: yes
+        autoclean: yes
+        force_apt_get: yes
+        dpkg_options: 'force-confnew'
+      become: true
