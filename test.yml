@@ -1,4 +1,7 @@
 ---
+- name: Update and upgrade Ubuntu server
+  hosts: "{{ inventory }}"
+  become: true
   tasks:
     - name: Update package cache
       apt:
